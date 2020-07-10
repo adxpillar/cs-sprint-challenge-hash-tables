@@ -4,11 +4,25 @@ class Ticket:
         self.source = source
         self.destination = destination
 
-
 def reconstruct_trip(tickets, length):
     """
     YOUR CODE HERE
     """
-    # Your code here
+    # trip will cover length-1 routes 
+    # routes = [None] * (length - 1)
+    routes = {}
+    # iterate through entire trip
+    for i in range(length):
+        # set ticket for each trip
+        ticket = tickets[i]
+        # set source for each trip
+        source = ticket.source
+        # set destination for each trip
+        destination = ticket.destination
 
-    return route
+        # no last flight - "FLG"
+        # 
+        if "NONE" not in routes:
+            routes[i] = ticket.destination
+            i += 1
+    return list(routes)
