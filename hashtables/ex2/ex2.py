@@ -21,8 +21,9 @@ def reconstruct_trip(tickets, length):
         destination = ticket.destination
 
         # no last flight - "FLG"
-        # 
-        if "NONE" not in routes:
-            routes[i] = ticket.destination
-            i += 1
+        flight = "NONE"
+        # i = 0
+        if flight not in routes:
+            routes[i] = destination
+            # i += 1
     return list(routes)
