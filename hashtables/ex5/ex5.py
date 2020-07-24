@@ -1,7 +1,7 @@
 # Your code here
 import urllib.request,urllib.parse
 import os
-result = {}
+cache = {}
 
 def finder(files, queries):
     """

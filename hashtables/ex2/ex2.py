@@ -8,22 +8,26 @@ def reconstruct_trip(tickets, length):
     """
     YOUR CODE HERE
     """
-    # trip will cover length-1 routes 
-    # routes = [None] * (length - 1)
-    routes = {}
-    # iterate through entire trip
-    for i in range(length):
-        # set ticket for each trip
-        ticket = tickets[i]
-        # set source for each trip
-        source = ticket.source
-        # set destination for each trip
-        destination = ticket.destination
+    # Your code here
 
-        # no last flight - "FLG"
-        flight = "NONE"
-        # i = 0
-        if flight not in routes:
-            routes[i] = destination
-            # i += 1
-    return list(routes)
+
+    # index destination to depature 
+    # each destination is precursor for next depature 
+    # starting_point = source and ending_point = destination
+
+    # path of flight route 
+    route = [None] * length
+    # hold tickets here 
+    tix_cache = {}
+
+    for ticket in tickets:
+        # connect each ticket with it's destination
+        tix_cache[ticket.source] = ticket.destination
+    # move through source-destination using 
+    # since both start at none 
+    next = tix_cache["NONE"]
+    # use 
+    for departure in range(0, length):
+        route[departure] = next
+        next = tix_cache[next]
+    return route
