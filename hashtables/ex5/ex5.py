@@ -8,22 +8,15 @@ def finder(files, queries):
     YOUR CODE HERE
     """
 
-    # for path in files:
-    #         resp = open(path)
-    #         data = resp.read()
-    #         resp.close()
-    #         data = path.split()
-    #         cache[data] = []
-    #         for q in queries:
-    #             if q not in cache[data]:
-    #                 result.append(cache[path])
-    # return result
-    for i in files:
-        data = i.split()
-    result[i] = data
-    
-
-    return result 
+    for path in files:
+            resp = open(path)
+            data = resp.read()
+            data = data.split()
+            cache[data] = []
+            for q in queries:
+                if q not in cache[data]:
+                    result.append(cache[path])
+    return result
 
 
 if __name__ == "__main__":
